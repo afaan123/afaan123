@@ -1,0 +1,60 @@
+nested query
+
+sql query to display employee name who is taking maximum salary
+
+select e_name from emp where 
+salary=(select max(salary) from emp)
+
+Display name who is second highest salary from emp table
+select ename from emp where salary =
+(select max(salary) from emp where salary <>
+(select max(salary) from emp))
+
+query to display all department names where no. of emps are less than 2
+select ename from emp
+where dept in 
+(
+select dept from emp group by dept having count(*)<2
+
+)
+
+Display details of all other boats that are of the same color as that of boat having BID=1
+select * from boat_d04 where COLOR =(select COLOR from boat_d04  where BID=1)
+
+
+Display which color boats are more than the number of boats of green color
+select color,count(*) from boat_d04 group by color having count(color)>(select count(*) from boat_d04 where COLOR="green")
+
+display the name of eldest sailor
+select sname from sailor_d04 where age=(select max(age) from sailor_d04 )
+
+display the name of youngest sailor
+select sname from sailor_d04 where age=(select min(age) from sailor_d04 )
+
+display the sailors who have ratings greater than either sailor 'SAM' or 'Ram or 'Tina'
+select * from sailor_d04 where rating> any(select rating from sailor_d04 where sname in ('sam','ram','tina'));
+
+display the sailors who are elder then  either 'SAM' and 'Ram and 'Tina'
+select * from sailor_d04 where age> all(select age from sailor_d04 where sname in ('sam','ram','tina'));
+
+display the details of sailors whose rating is higher then the youngest sailor
+select * from sailor_d04 where rating> (select rating from sailor_d04 where  age=(select min(age) from sailor_d04))
+
+display details of boats that have been reserved 
+select * from boat_d04 where BID=any(select BID from reserves_d04)
+
+display the names of sailors who have not reserved any boats
+select sname from sailor_d04 where sid <> all(select SID from reserves_d04);
+
+display the names of sailors who have reserved any boats
+select sname from sailor_d04 where sid=any(select SID from reserves_d04);
+
+ 
+select * from emp where eid in
+	(select eid from dept)
+
+
+Correlated subquery
+select * from emp where 
+	eid exists(select eid from project where emp.eid=project.eid)
+

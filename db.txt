@@ -1,0 +1,115 @@
+Alter
+alter table student_04 add hobbies varchar(20), add semester int(1);
+
+Change Datatype to double
+alter table student_04 modify column height double(2,2);
+
+Add constraint null
+alter table student_d04 modify column semester int not null;
+
+change name of column
+alter table student_d04 change column semester sem int(1) not null;
+
+Rename table
+alter table student_d04 rename to student_details_d04;
+
+change datatype
+alter table student_04 modify column hobbies int;
+
+drop column
+alter table student_details drop column hobbies;
+
+Add foreign key
+alter table department add constraint foreign key(hod_id) references doctor_d04(Doctorid);
+
+
+drop foreign key
+ALTER TABLE Orders
+DROP CONSTRAINT FK_PersonOrder;
+
+create a new table from original table
+create table new_student select fname,mname,lname,email,mobile from student_details_d04;
+
+
+datetime default current_timestamp() not null
+bigint(10)
+float(2,2)
+
+constraint primary_key primary key(rollno), constraint unique_key unique(email)
+CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
+REFERENCES Persons(PersonID)
+
+
+DML
+
+delete
+delete from reserves_d04 where sid=1
+
+delete from reserves_d04 where R_DATE<CURDATE();
+
+update
+update boat set color='white' where BID in(2,4,6,8);
+
+
+
+group by 
+select rating,age,count(*) from sailor_d04 group by rating,age;
+
+
+
+
+inner join
+SELECT * FROM sailor_d04 s INNER JOIN reserves_d04 r ON s.SID=r.SID
+
+3table join
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+
+left join
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;
+
+right join
+SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID;
+
+full outer join
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+FULL OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID
+ORDER BY Customers.CustomerName;
+
+
+views
+create view view1 as select s.sid,s.sname,b.bid,b.bname from sailor_d04 s,boat_d04 b, 
+reserves_d04 where s.sid=r.sid and b.bid=r.bid;
+
+create view view2 as select color,count(r.bid) as no_of_reserved_boats from boat_d04  b,
+reserves_d04 r where b.bid=r.bid group by color;
+
+create view view3 as select sname,age from sailor_d04;
+
+insert into sailor_d04 values(11,"Afaan",10,30);
+
+select * from view3;
+
+drop view viewname;
+
+view cannot be updated and deleted
+
+
+Transaction
+
+set autocommit=off;
+commit;
+rollback;
+savepoint A;
+rollback to A;
+release savepoint A;
+
