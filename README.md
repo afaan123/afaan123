@@ -45,4 +45,4 @@
 ---
 
 ## 📫 Let's Connect!
-[🌐 Portfolio](https://mohammedafaan.netlify.app/) | [💼 LinkedIn](https://linkedin.com/in/afaan-shaikh-467051165) | 📧 Email: afaanshaikh010@gmail.com  
+[🌐 Portfolio](https://mohammedafaan.netlify.app/) | [💼 LinkedIn](https://linkedin.com/in/afaan-shaikh-467051165) | 📧 Email: afaan.shaikh.21@gmail.com 
