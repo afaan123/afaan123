@@ -1,4 +1,3 @@
-Absolutely, Mohammed! Here’s your profile **re-written for a Data Engineering role**. I’ve kept your achievements and background but made the language, skills, and summary more data engineering–focused. If you want it shorter or need a cover letter, just say the word!
 
 ---
 
@@ -58,5 +57,3 @@ Absolutely, Mohammed! Here’s your profile **re-written for a Data Engineering 
 [🌐 Portfolio](https://mohammedafaan.netlify.app/) | [💼 LinkedIn](https://linkedin.com/in/afaan-shaikh-467051165) | 📧 Email: [afaan.shaikh.21@gmail.com](mailto:afaan.shaikh.21@gmail.com)
 
 ---
-
-**Feel free to copy, edit, or let me know if you want to highlight specific Data Engineering tools or add a summary!**
